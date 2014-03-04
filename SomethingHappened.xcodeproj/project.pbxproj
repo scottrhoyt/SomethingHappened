@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B74096C18C680A70089393E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096B18C680A70089393E /* MapKit.framework */; };
+		3B74096E18C680C50089393E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096D18C680C50089393E /* CoreLocation.framework */; };
 		3BEBA06A18C6796600E1ABC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06918C6796600E1ABC8 /* Foundation.framework */; };
 		3BEBA06C18C6796600E1ABC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06B18C6796600E1ABC8 /* CoreGraphics.framework */; };
 		3BEBA06E18C6796600E1ABC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06D18C6796600E1ABC8 /* UIKit.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B74096B18C680A70089393E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3B74096D18C680C50089393E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3BEBA06618C6796600E1ABC8 /* SomethingHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEBA06918C6796600E1ABC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BEBA06B18C6796600E1ABC8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,8 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B74096E18C680C50089393E /* CoreLocation.framework in Frameworks */,
 				3BEBA06C18C6796600E1ABC8 /* CoreGraphics.framework in Frameworks */,
 				3BEBA06E18C6796600E1ABC8 /* UIKit.framework in Frameworks */,
+				3B74096C18C680A70089393E /* MapKit.framework in Frameworks */,
 				3BEBA06A18C6796600E1ABC8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +109,8 @@
 		3BEBA06818C6796600E1ABC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B74096D18C680C50089393E /* CoreLocation.framework */,
+				3B74096B18C680A70089393E /* MapKit.framework */,
 				3BEBA06918C6796600E1ABC8 /* Foundation.framework */,
 				3BEBA06B18C6796600E1ABC8 /* CoreGraphics.framework */,
 				3BEBA06D18C6796600E1ABC8 /* UIKit.framework */,
@@ -203,6 +211,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Wild Onion Labs";
 				TargetAttributes = {
+					3BEBA06518C6796600E1ABC8 = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					3BEBA08918C6796600E1ABC8 = {
 						TestTargetID = 3BEBA06518C6796600E1ABC8;
 					};
@@ -475,6 +490,7 @@
 				3BEBA09D18C6796600E1ABC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BEBA09E18C6796600E1ABC8 /* Build configuration list for PBXNativeTarget "SomethingHappenedTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +499,7 @@
 				3BEBA0A018C6796600E1ABC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
