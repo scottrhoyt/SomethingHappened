@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B66DA18C7C9670062134D /* SHReportViewController.m */; };
 		3B74096C18C680A70089393E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096B18C680A70089393E /* MapKit.framework */; };
 		3B74096E18C680C50089393E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096D18C680C50089393E /* CoreLocation.framework */; };
 		3BEBA06A18C6796600E1ABC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06918C6796600E1ABC8 /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B1B66D918C7C9670062134D /* SHReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHReportViewController.h; sourceTree = "<group>"; };
+		3B1B66DA18C7C9670062134D /* SHReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHReportViewController.m; sourceTree = "<group>"; };
 		3B74096B18C680A70089393E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B74096D18C680C50089393E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3BEBA06618C6796600E1ABC8 /* SomethingHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,8 @@
 				3BEBA08218C6796600E1ABC8 /* SHViewController.m */,
 				3BEBA08418C6796600E1ABC8 /* Images.xcassets */,
 				3BEBA07018C6796600E1ABC8 /* Supporting Files */,
+				3B1B66D918C7C9670062134D /* SHReportViewController.h */,
+				3B1B66DA18C7C9670062134D /* SHReportViewController.m */,
 			);
 			path = SomethingHappened;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BEBA07618C6796600E1ABC8 /* main.m in Sources */,
+				3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */,
 				3BEBA08318C6796600E1ABC8 /* SHViewController.m in Sources */,
 				3BEBA07A18C6796600E1ABC8 /* SHAppDelegate.m in Sources */,
 			);
