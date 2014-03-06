@@ -27,7 +27,7 @@
 - (NSArray *)eventTypes
 {
     if (!_eventTypes) {
-        _eventTypes = @[@"", @"Rape",@"Sexual Harrasment",@"Other"];
+        _eventTypes = @[@"", @"Event 1",@"Event 2",@"Event 3"];
     }
     
     return _eventTypes;
