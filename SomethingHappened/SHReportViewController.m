@@ -7,13 +7,17 @@
 //
 
 #import "SHReportViewController.h"
+#import "SHArrayTableViewController.h"
 
-@interface SHReportViewController ()
+@interface SHReportViewController () <SHArrayTableViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
 
 @property (nonatomic) BOOL editingDateTime;
+@property (nonatomic) BOOL editingEventType;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (nonatomic, strong) NSArray *eventTypes; // of NSString *
+//@property (weak, nonatomic) IBOutlet UIPickerView *eventTypePicker;
+@property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
 
 
 @end
@@ -23,7 +27,7 @@
 - (NSArray *)eventTypes
 {
     if (!_eventTypes) {
-        _eventTypes = @[@"Rape",@"Sexual Harrasment",@"Other"];
+        _eventTypes = @[@"", @"Rape",@"Sexual Harrasment",@"Other"];
     }
     
     return _eventTypes;
@@ -42,6 +46,9 @@
 {
     [super viewDidLoad];
 
+//    self.eventTypePicker.dataSource = self;
+//    self.eventTypePicker.delegate = self;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -55,6 +62,7 @@
     
     [self setDateLabelWithDate:[NSDate date]];
     [self setTimeLabelWithDate:[NSDate date]];
+    //self.eventTypeLabel.text = [self.eventTypes objectAtIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,6 +116,8 @@
 
 #define DATE_CELL_SECTION 1
 #define DATE_CELL_ROW 1
+#define EVENT_TYPE_CELL_SECTION 1
+#define EVENT_TYPE_CELL_ROW 3
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == DATE_CELL_SECTION && indexPath.row == DATE_CELL_ROW) { // this is my picker cell
@@ -116,7 +126,13 @@
         } else {
             return 0;
         }
-    } else {
+    } /*else if (indexPath.section == EVENT_TYPE_CELL_SECTION && indexPath.row == EVENT_TYPE_CELL_ROW) { // this is my picker cell
+        if (self.editingEventType) {
+            return 219;
+        } else {
+            return 0;
+        }
+    }*/ else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
     }
 }
@@ -129,6 +145,14 @@
             [self.tableView reloadData];
         }];
     }
+    
+//    if (indexPath.section == EVENT_TYPE_CELL_SECTION && indexPath.row == EVENT_TYPE_CELL_ROW - 1) { // this is my date cell above the picker cell
+//        self.editingEventType = !self.editingEventType;
+//        [UIView animateWithDuration:.4 animations:^{
+//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:DATE_CELL_ROW inSection:DATE_CELL_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
+//            [self.tableView reloadData];
+//        }];
+//    }
 }
 
 /*
@@ -170,16 +194,47 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
+
+#define EVENT_TYPE_SELECTION_ID @"Event Type Selection"
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:EVENT_TYPE_SELECTION_ID]) {
+        if ([segue.destinationViewController isKindOfClass:[SHArrayTableViewController class]]) {
+            SHArrayTableViewController *destination = (SHArrayTableViewController *)segue.destinationViewController;
+            destination.data = self.eventTypes;
+            destination.delegate = self;
+        }
+    }
 }
 
- */
+//#pragma mark - picker datasource
+//
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+//{
+//    return 1;
+//}
+//
+//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+//{
+//    return self.eventTypes.count;
+//}
+//
+//#pragma mark - picker delegate
+//
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    return [self.eventTypes objectAtIndex:row];
+//}
+
+#pragma mark - SHArrayTableViewController delegate
+
+- (void)arrayTableViewController:(SHArrayTableViewController *)sender DidSelectIndex:(NSUInteger)index
+{
+    self.eventTypeLabel.text = self.eventTypes[index];
+}
 
 @end
