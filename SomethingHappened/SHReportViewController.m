@@ -8,6 +8,7 @@
 
 #import "SHReportViewController.h"
 #import "SHArrayTableViewController.h"
+#import "SHWebApiFetcher.h"
 
 @interface SHReportViewController () <SHArrayTableViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
 
@@ -18,11 +19,21 @@
 @property (nonatomic, strong) NSArray *eventTypes; // of NSString *
 //@property (weak, nonatomic) IBOutlet UIPickerView *eventTypePicker;
 @property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
+@property (strong, nonatomic) SHWebApiFetcher *fetcher;
 
 
 @end
 
 @implementation SHReportViewController
+
+- (SHWebApiFetcher *)fetcher
+{
+    if (!_fetcher) {
+        _fetcher = [[SHWebApiFetcher alloc] init];
+    }
+    
+    return _fetcher;
+}
 
 - (NSArray *)eventTypes
 {
@@ -45,6 +56,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.fetcher getEventTypes];
 
 //    self.eventTypePicker.dataSource = self;
 //    self.eventTypePicker.delegate = self;

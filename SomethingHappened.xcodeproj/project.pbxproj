@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B66DA18C7C9670062134D /* SHReportViewController.m */; };
 		3B1B66DE18C7ED1F0062134D /* SHArrayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */; };
+		3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */; };
+		3B70196918C93FB900E6DC81 /* SHJsonObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196818C93FB900E6DC81 /* SHJsonObj.m */; };
+		3B70196C18C93FD100E6DC81 /* SHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196B18C93FD100E6DC81 /* SHEvent.m */; };
 		3B74096C18C680A70089393E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096B18C680A70089393E /* MapKit.framework */; };
 		3B74096E18C680C50089393E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096D18C680C50089393E /* CoreLocation.framework */; };
 		3BEBA06A18C6796600E1ABC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06918C6796600E1ABC8 /* Foundation.framework */; };
@@ -43,6 +46,12 @@
 		3B1B66DA18C7C9670062134D /* SHReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHReportViewController.m; sourceTree = "<group>"; };
 		3B1B66DC18C7ED1F0062134D /* SHArrayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHArrayTableViewController.h; sourceTree = "<group>"; };
 		3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHArrayTableViewController.m; sourceTree = "<group>"; };
+		3B70196418C92DDB00E6DC81 /* SHWebApiFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWebApiFetcher.h; sourceTree = "<group>"; };
+		3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWebApiFetcher.m; sourceTree = "<group>"; };
+		3B70196718C93FB900E6DC81 /* SHJsonObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHJsonObj.h; sourceTree = "<group>"; };
+		3B70196818C93FB900E6DC81 /* SHJsonObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHJsonObj.m; sourceTree = "<group>"; };
+		3B70196A18C93FD100E6DC81 /* SHEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEvent.h; sourceTree = "<group>"; };
+		3B70196B18C93FD100E6DC81 /* SHEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEvent.m; sourceTree = "<group>"; };
 		3B74096B18C680A70089393E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B74096D18C680C50089393E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3BEBA06618C6796600E1ABC8 /* SomethingHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +149,12 @@
 				3B1B66DA18C7C9670062134D /* SHReportViewController.m */,
 				3B1B66DC18C7ED1F0062134D /* SHArrayTableViewController.h */,
 				3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */,
+				3B70196418C92DDB00E6DC81 /* SHWebApiFetcher.h */,
+				3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */,
+				3B70196718C93FB900E6DC81 /* SHJsonObj.h */,
+				3B70196818C93FB900E6DC81 /* SHJsonObj.m */,
+				3B70196A18C93FD100E6DC81 /* SHEvent.h */,
+				3B70196B18C93FD100E6DC81 /* SHEvent.m */,
 			);
 			path = SomethingHappened;
 			sourceTree = "<group>";
@@ -279,8 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B70196918C93FB900E6DC81 /* SHJsonObj.m in Sources */,
+				3B70196C18C93FD100E6DC81 /* SHEvent.m in Sources */,
 				3B1B66DE18C7ED1F0062134D /* SHArrayTableViewController.m in Sources */,
 				3BEBA07618C6796600E1ABC8 /* main.m in Sources */,
+				3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */,
 				3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */,
 				3BEBA08318C6796600E1ABC8 /* SHViewController.m in Sources */,
 				3BEBA07A18C6796600E1ABC8 /* SHAppDelegate.m in Sources */,
