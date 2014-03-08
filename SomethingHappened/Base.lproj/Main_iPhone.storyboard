@@ -146,10 +146,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nn-oo-PqX">
+                                                <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aaQ-Ai-uTL">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </mapView>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <segue destination="2Xc-1T-DuO" kind="embed" id="2Zk-Nz-iRo"/>
+                                                    </connections>
+                                                </containerView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -199,7 +203,7 @@
                                                         <!--2014-03-05 21:09:10 +0000-->
                                                     </date>
                                                     <timeZone key="timeZone" name="America/Los_Angeles">
-                                                        <mutableData key="data">
+                                                        <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -217,7 +221,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                                     </timeZone>
                                                     <connections>
                                                         <action selector="datePickerValueChanged:" destination="MBE-Pm-H2f" eventType="valueChanged" id="4wJ-08-WZq"/>
@@ -334,6 +338,40 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aa-6b-kgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="202" y="79"/>
+        </scene>
+        <!--Center Pin Map View Controller-->
+        <scene sceneID="d86-Iw-uLY">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2Xc-1T-DuO" customClass="CenterPinMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ybb-F0-r78"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vbd-jk-8Th"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oE7-A9-3eE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m7Y-W9-dZ0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m7Y-W9-dZ0" firstAttribute="top" secondItem="ybb-F0-r78" secondAttribute="bottom" id="5Wq-ep-T0P"/>
+                            <constraint firstItem="Vbd-jk-8Th" firstAttribute="top" secondItem="m7Y-W9-dZ0" secondAttribute="bottom" id="6Ns-Le-5bo"/>
+                            <constraint firstAttribute="trailing" secondItem="m7Y-W9-dZ0" secondAttribute="trailing" id="G85-ou-PNe"/>
+                            <constraint firstItem="m7Y-W9-dZ0" firstAttribute="leading" secondItem="oE7-A9-3eE" secondAttribute="leading" id="sZy-yD-4om"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="mapView" destination="m7Y-W9-dZ0" id="mcw-Q2-jyZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4BR-Sk-Mri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="-530"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

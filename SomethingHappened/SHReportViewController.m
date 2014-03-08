@@ -9,6 +9,7 @@
 #import "SHReportViewController.h"
 #import "SHArrayTableViewController.h"
 #import "SHWebApiFetcher.h"
+#import "CenterPinMapViewController.h"
 
 @interface SHReportViewController () <SHArrayTableViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
 
@@ -20,6 +21,7 @@
 //@property (weak, nonatomic) IBOutlet UIPickerView *eventTypePicker;
 @property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
 @property (strong, nonatomic) SHWebApiFetcher *fetcher;
+@property (weak, nonatomic) CenterPinMapViewController *cpmvc;
 
 
 @end
@@ -58,6 +60,11 @@
     [super viewDidLoad];
     
     [self.fetcher getEventTypes];
+    self.cpmvc = self.childViewControllers[0];
+    self.cpmvc.zoomToUser = YES;
+    self.cpmvc.doesDisplayPointAccuracyIndicators = YES;
+    self.cpmvc.requiredPointAccuracy = 5;
+    self.cpmvc.showUserTrackingButton = YES;
 
 //    self.eventTypePicker.dataSource = self;
 //    self.eventTypePicker.delegate = self;

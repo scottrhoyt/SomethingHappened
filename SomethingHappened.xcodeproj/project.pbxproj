@@ -14,6 +14,7 @@
 		3B70196C18C93FD100E6DC81 /* SHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196B18C93FD100E6DC81 /* SHEvent.m */; };
 		3B74096C18C680A70089393E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096B18C680A70089393E /* MapKit.framework */; };
 		3B74096E18C680C50089393E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B74096D18C680C50089393E /* CoreLocation.framework */; };
+		3BAB874618CBC0EE00CF29B4 /* CenterPinMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB874418CBC0EE00CF29B4 /* CenterPinMapViewController.m */; };
 		3BEBA06A18C6796600E1ABC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06918C6796600E1ABC8 /* Foundation.framework */; };
 		3BEBA06C18C6796600E1ABC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06B18C6796600E1ABC8 /* CoreGraphics.framework */; };
 		3BEBA06E18C6796600E1ABC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06D18C6796600E1ABC8 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		3B70196B18C93FD100E6DC81 /* SHEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEvent.m; sourceTree = "<group>"; };
 		3B74096B18C680A70089393E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3B74096D18C680C50089393E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3BAB874418CBC0EE00CF29B4 /* CenterPinMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterPinMapViewController.m; path = ../../CenterPinMapViewController/CenterPinMapViewController.m; sourceTree = "<group>"; };
+		3BAB874518CBC0EE00CF29B4 /* CenterPinMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterPinMapViewController.h; path = ../../CenterPinMapViewController/CenterPinMapViewController.h; sourceTree = "<group>"; };
 		3BEBA06618C6796600E1ABC8 /* SomethingHappened.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomethingHappened.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEBA06918C6796600E1ABC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BEBA06B18C6796600E1ABC8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 		3BEBA06F18C6796600E1ABC8 /* SomethingHappened */ = {
 			isa = PBXGroup;
 			children = (
+				3BAB874418CBC0EE00CF29B4 /* CenterPinMapViewController.m */,
+				3BAB874518CBC0EE00CF29B4 /* CenterPinMapViewController.h */,
 				3BEBA07818C6796600E1ABC8 /* SHAppDelegate.h */,
 				3BEBA07918C6796600E1ABC8 /* SHAppDelegate.m */,
 				3BEBA07B18C6796600E1ABC8 /* Main_iPhone.storyboard */,
@@ -301,6 +306,7 @@
 				3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */,
 				3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */,
 				3BEBA08318C6796600E1ABC8 /* SHViewController.m in Sources */,
+				3BAB874618CBC0EE00CF29B4 /* CenterPinMapViewController.m in Sources */,
 				3BEBA07A18C6796600E1ABC8 /* SHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
