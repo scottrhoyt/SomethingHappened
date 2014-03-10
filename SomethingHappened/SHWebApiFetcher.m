@@ -45,7 +45,7 @@
 
 -(void)createNewEvent:(NSDictionary *)newEvent
 {
-    [newEvent ]
+    //[newEvent ]
 }
 
 @end
