@@ -59,8 +59,12 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.data[indexPath.row] description];
-    
+    if (self.key) {
+        cell.textLabel.text = [self.data[indexPath.row] valueForKey:self.key];
+    } else {
+        cell.textLabel.text = [self.data[indexPath.row] description];
+    }
+
     return cell;
 }
 

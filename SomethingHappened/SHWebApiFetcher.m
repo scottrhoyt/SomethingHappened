@@ -43,4 +43,9 @@
     return [self executeQuery:EVENTS_SUB_URL];
 }
 
+-(void)createNewEvent:(NSDictionary *)newEvent
+{
+    [newEvent ]
+}
+
 @end

@@ -11,7 +11,7 @@
 #import "SHWebApiFetcher.h"
 #import "CenterPinMapViewController.h"
 
-@interface SHReportViewController () <SHArrayTableViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
+@interface SHReportViewController () <SHArrayTableViewControllerDelegate, CenterPinMapViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
 
 @property (nonatomic) BOOL editingDateTime;
 @property (nonatomic) BOOL editingEventType;
@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
 @property (strong, nonatomic) SHWebApiFetcher *fetcher;
 @property (weak, nonatomic) CenterPinMapViewController *cpmvc;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 
 @end
@@ -59,12 +60,16 @@
 {
     [super viewDidLoad];
     
-    [self.fetcher getEventTypes];
+    self.eventTypes = [self.fetcher getEventTypes];
     self.cpmvc = self.childViewControllers[0];
     self.cpmvc.zoomToUser = YES;
     self.cpmvc.doesDisplayPointAccuracyIndicators = YES;
-    self.cpmvc.requiredPointAccuracy = 5;
+    self.cpmvc.requiredPointAccuracy = 10;
     self.cpmvc.showUserTrackingButton = YES;
+    self.cpmvc.shouldReverseGeocode = YES;
+    self.cpmvc.delegate = self;
+    
+    self.addressLabel.text = @"";
 
 //    self.eventTypePicker.dataSource = self;
 //    self.eventTypePicker.delegate = self;
@@ -227,6 +232,7 @@
             SHArrayTableViewController *destination = (SHArrayTableViewController *)segue.destinationViewController;
             destination.data = self.eventTypes;
             destination.delegate = self;
+            destination.key = EVENT_TYPE_NAME_KEY;
         }
     }
 }
@@ -254,7 +260,14 @@
 
 - (void)arrayTableViewController:(SHArrayTableViewController *)sender DidSelectIndex:(NSUInteger)index
 {
-    self.eventTypeLabel.text = self.eventTypes[index];
+    self.eventTypeLabel.text = [self.eventTypes[index] valueForKey:EVENT_TYPE_NAME_KEY];
+}
+
+#pragma mark - CenterPinMapViewController delegate
+
+- (void)centerPinMapViewController:(CenterPinMapViewController *)sender didResolvePlacemark:(CLPlacemark *)placemark
+{
+    self.addressLabel.text = placemark.name;
 }
 
 @end

@@ -19,6 +19,10 @@
 @interface SHArrayTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *data; // of NSStrings
+
+///@brief This is the key to use for each member of the array to get title information
+@property (nonatomic, strong) NSString *key;
+
 @property (nonatomic, weak) id<SHArrayTableViewControllerDelegate> delegate;
 
 @end
