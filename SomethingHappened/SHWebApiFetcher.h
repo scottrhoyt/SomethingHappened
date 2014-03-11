@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SHEvent.h"
+#import "SHEventType.h"
 
 #define EVENT_TYPE_NAME_KEY @"name"
 #define EVENT_TYPE_DESCRIPTION_KEY @"description"
