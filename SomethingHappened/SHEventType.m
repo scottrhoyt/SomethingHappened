@@ -27,9 +27,9 @@
     return objectMapping;
 }
 
-+ (RKObjectMapping *)getRequestMapping
-{
-    return [[SHEventType getResponseMapping] inverseMapping];
-}
+//+ (RKObjectMapping *)getRequestMapping
+//{
+//    return [[SHEventType getResponseMapping] inverseMapping];
+//}
 
 @end

@@ -11,6 +11,7 @@
 		3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B66DA18C7C9670062134D /* SHReportViewController.m */; };
 		3B1B66DE18C7ED1F0062134D /* SHArrayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */; };
 		3B27CC2818CEDC8800EDF232 /* SHEventType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B27CC2718CEDC8800EDF232 /* SHEventType.m */; };
+		3B2FBFB218CF926A00D51FD1 /* SHReportingZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FBFB118CF926A00D51FD1 /* SHReportingZone.m */; };
 		3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */; };
 		3B70196918C93FB900E6DC81 /* SHApiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196818C93FB900E6DC81 /* SHApiObject.m */; };
 		3B70196C18C93FD100E6DC81 /* SHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B70196B18C93FD100E6DC81 /* SHEvent.m */; };
@@ -53,6 +54,8 @@
 		3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHArrayTableViewController.m; sourceTree = "<group>"; };
 		3B27CC2618CEDC8800EDF232 /* SHEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEventType.h; sourceTree = "<group>"; };
 		3B27CC2718CEDC8800EDF232 /* SHEventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEventType.m; sourceTree = "<group>"; };
+		3B2FBFB018CF926A00D51FD1 /* SHReportingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHReportingZone.h; sourceTree = "<group>"; };
+		3B2FBFB118CF926A00D51FD1 /* SHReportingZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHReportingZone.m; sourceTree = "<group>"; };
 		3B70196418C92DDB00E6DC81 /* SHWebApiFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHWebApiFetcher.h; sourceTree = "<group>"; };
 		3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHWebApiFetcher.m; sourceTree = "<group>"; };
 		3B70196718C93FB900E6DC81 /* SHApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHApiObject.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				3B70196B18C93FD100E6DC81 /* SHEvent.m */,
 				3B27CC2618CEDC8800EDF232 /* SHEventType.h */,
 				3B27CC2718CEDC8800EDF232 /* SHEventType.m */,
+				3B2FBFB018CF926A00D51FD1 /* SHReportingZone.h */,
+				3B2FBFB118CF926A00D51FD1 /* SHReportingZone.m */,
 			);
 			path = SomethingHappened;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				3B1B66DE18C7ED1F0062134D /* SHArrayTableViewController.m in Sources */,
 				3BEBA07618C6796600E1ABC8 /* main.m in Sources */,
 				3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */,
+				3B2FBFB218CF926A00D51FD1 /* SHReportingZone.m in Sources */,
 				3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */,
 				3BEBA08318C6796600E1ABC8 /* SHMainViewController.m in Sources */,
 				3BAB874618CBC0EE00CF29B4 /* CenterPinMapViewController.m in Sources */,

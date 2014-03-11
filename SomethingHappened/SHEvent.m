@@ -39,22 +39,11 @@
     return objectMapping;
 }
 
-+ (RKObjectMapping *)getRequestMapping
-{
-    RKObjectMapping *requestMapping = [RKObjectMapping requestMapping];
-    
-//    [requestMapping addAttributeMappingsFromArray:@[
-//                                                        @"userId",
-//                                                        @"reportedAt",
-//                                                        @"reportedLocationLatitude",
-//                                                        @"reportedLocationLongitude",
-//                                                        @"eventLocationLatitude",
-//                                                        @"eventLocationLongitude",
-//                                                        @"eventTypeId",
-//                                                        @"comments"
-//                                                        ]];
-    return [[SHEvent getResponseMapping] inverseMapping];
-    //return requestMapping;
-}
+//+ (RKObjectMapping *)getRequestMapping
+//{
+//    RKObjectMapping *requestMapping = [RKObjectMapping requestMapping];
+//
+//    return [[SHEvent getResponseMapping] inverseMapping];
+//}
 
 @end

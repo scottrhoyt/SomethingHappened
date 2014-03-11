@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
+/*
+ This is an abstract superclass for RestKit loaded objects.  Must implement certain public api.
+*/
 @interface SHApiObject : NSObject
 
-+ (RKObjectMapping *)getResponseMapping;
 + (RKObjectMapping *)getRequestMapping;
+
+// Must implement the following
+
++ (RKObjectMapping *)getResponseMapping;
 
 @end

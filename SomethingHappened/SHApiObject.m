@@ -14,4 +14,14 @@
 
 @implementation SHApiObject
 
++ (RKObjectMapping *)getResponseMapping
+{
+    return nil;
+}
+
++ (RKObjectMapping *)getRequestMapping
+{
+    return [[self getResponseMapping] inverseMapping];
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SHApiObject.h"
+#import <CoreLocation/CoreLocation.h>
 //#import <RestKit/RestKit.h>
 
 @interface SHEvent : SHApiObject
@@ -14,10 +15,10 @@
 @property (nonatomic) NSUInteger eventId;
 @property (nonatomic) NSUInteger userId;
 @property (nonatomic) NSDate *reportedAt;
-@property (nonatomic) double reportedLocationLatitude;
-@property (nonatomic) double reportedLocationLongitude;
-@property (nonatomic) double eventLocationLatitude;
-@property (nonatomic) double eventLocationLongitude;
+@property (nonatomic) CLLocationDegrees reportedLocationLatitude;
+@property (nonatomic) CLLocationDegrees reportedLocationLongitude;
+@property (nonatomic) CLLocationDegrees eventLocationLatitude;
+@property (nonatomic) CLLocationDegrees eventLocationLongitude;
 @property (nonatomic) NSUInteger eventTypeId;
 @property (nonatomic) NSString *comments;
 
