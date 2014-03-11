@@ -7,17 +7,21 @@
 //
 
 #import "SHJsonObj.h"
+#import <RestKit/RestKit.h>
 
 @interface SHEvent : SHJsonObj
 
-@property (nonatomic) NSUInteger event;
-@property (nonatomic) NSUInteger user_id;
-@property (nonatomic) NSDate *reported_at;
-@property (nonatomic) NSInteger reported_location_latitude;
-@property (nonatomic) NSInteger reported_location_longitude;
-@property (nonatomic) NSInteger event_location_latitude;
-@property (nonatomic) NSInteger event_location_longitude;
-@property (nonatomic) NSUInteger event_type_id;
+@property (nonatomic) NSUInteger eventId;
+@property (nonatomic) NSUInteger userId;
+@property (nonatomic) NSDate *reportedAt;
+@property (nonatomic) double reportedLocationLatitude;
+@property (nonatomic) double reportedLocationLongitude;
+@property (nonatomic) double eventLocationLatitude;
+@property (nonatomic) double eventLocationLongitude;
+@property (nonatomic) NSUInteger eventTypeId;
 @property (nonatomic) NSString *comments;
+
++ (RKObjectMapping *)getObjectMapping;
++ (RKObjectMapping *)getRequestMapping;
 
 @end

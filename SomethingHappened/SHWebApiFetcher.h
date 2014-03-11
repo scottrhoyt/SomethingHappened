@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SHEvent.h"
 
 #define EVENT_TYPE_NAME_KEY @"name"
 #define EVENT_TYPE_DESCRIPTION_KEY @"description"
@@ -25,5 +26,6 @@
 
 - (NSArray *)getEventTypes;
 - (NSArray *)getEvents;
+- (void)createNewEvent:(SHEvent *)event;
 
 @end
