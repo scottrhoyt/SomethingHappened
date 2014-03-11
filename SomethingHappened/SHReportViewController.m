@@ -10,6 +10,7 @@
 #import "SHArrayTableViewController.h"
 #import "CenterPinMapViewController.h"
 #import "SHEvent.h"
+#import <ProgressHUD/ProgressHUD.h>
 
 @interface SHReportViewController () <SHArrayTableViewControllerDelegate, CenterPinMapViewControllerDelegate> /*<UIPickerViewDataSource, UIPickerViewDelegate>*/
 
@@ -166,22 +167,22 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:EVENT_TYPE_SELECTION_ID]) {
-        if ([segue.destinationViewController isKindOfClass:[SHArrayTableViewController class]]) {
-            SHArrayTableViewController *destination = (SHArrayTableViewController *)segue.destinationViewController;
-            destination.data = self.eventTypes;
-            destination.delegate = self;
-            destination.key = EVENT_TYPE_NAME_KEY;
-        }
-    }
+//    if ([segue.identifier isEqualToString:EVENT_TYPE_SELECTION_ID]) {
+//        if ([segue.destinationViewController isKindOfClass:[SHArrayTableViewController class]]) {
+//            SHArrayTableViewController *destination = (SHArrayTableViewController *)segue.destinationViewController;
+//            destination.data = self.eventTypes;
+//            destination.delegate = self;
+//            destination.key = EVENT_TYPE_NAME_KEY;
+//        }
+//    }
 }
 
 #pragma mark - SHArrayTableViewController delegate
 
 - (void)arrayTableViewController:(SHArrayTableViewController *)sender DidSelectIndex:(NSUInteger)index
 {
-    self.eventTypeLabel.text = [self.eventTypes[index] valueForKey:EVENT_TYPE_NAME_KEY];
-    self.event.eventTypeId = index; // This needs to be changed;
+//    self.eventTypeLabel.text = [self.eventTypes[index] valueForKey:EVENT_TYPE_NAME_KEY];
+//    self.event.eventTypeId = index; // This needs to be changed;
 }
 
 #pragma mark - CenterPinMapViewController delegate
@@ -193,6 +194,7 @@
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
     self.event.userId = 1;
+    self.event.eventTypeId = 0;
     self.event.eventLocationLatitude = self.cpmvc.selectedCoordinate.latitude;
     self.event.eventLocationLongitude = self.cpmvc.selectedCoordinate.longitude;
     self.event.reportedLocationLatitude = self.cpmvc.selectedCoordinate.latitude; // need to change
