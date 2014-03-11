@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (nonatomic, strong) NSArray *eventTypes; // of NSString *
-//@property (weak, nonatomic) IBOutlet UIPickerView *eventTypePicker;
 @property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
 @property (strong, nonatomic) SHWebApiFetcher *fetcher;
 @property (weak, nonatomic) CenterPinMapViewController *cpmvc;
@@ -81,15 +80,6 @@
     self.cpmvc.delegate = self;
     
     self.addressLabel.text = @"";
-
-//    self.eventTypePicker.dataSource = self;
-//    self.eventTypePicker.delegate = self;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,13 +88,6 @@
     
     [self setDateLabelWithDate:[NSDate date]];
     [self setTimeLabelWithDate:[NSDate date]];
-    //self.eventTypeLabel.text = [self.eventTypes objectAtIndex:0];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setDateLabelWithDate:(NSDate *)date
@@ -163,13 +146,7 @@
         } else {
             return 0;
         }
-    } /*else if (indexPath.section == EVENT_TYPE_CELL_SECTION && indexPath.row == EVENT_TYPE_CELL_ROW) { // this is my picker cell
-        if (self.editingEventType) {
-            return 219;
-        } else {
-            return 0;
-        }
-    }*/ else {
+    } else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
     }
 }
@@ -179,58 +156,10 @@
         self.editingDateTime = !self.editingDateTime;
         [UIView animateWithDuration:.4 animations:^{
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:DATE_CELL_ROW inSection:DATE_CELL_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView reloadData];
+            //[self.tableView reloadData];
         }];
     }
-    
-//    if (indexPath.section == EVENT_TYPE_CELL_SECTION && indexPath.row == EVENT_TYPE_CELL_ROW - 1) { // this is my date cell above the picker cell
-//        self.editingEventType = !self.editingEventType;
-//        [UIView animateWithDuration:.4 animations:^{
-//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:DATE_CELL_ROW inSection:DATE_CELL_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
-//            [self.tableView reloadData];
-//        }];
-//    }
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -248,25 +177,6 @@
         }
     }
 }
-
-//#pragma mark - picker datasource
-//
-//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-//{
-//    return 1;
-//}
-//
-//- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-//{
-//    return self.eventTypes.count;
-//}
-//
-//#pragma mark - picker delegate
-//
-//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-//{
-//    return [self.eventTypes objectAtIndex:row];
-//}
 
 #pragma mark - SHArrayTableViewController delegate
 
