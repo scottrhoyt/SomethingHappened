@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SHWebApiFetcher.h"
 
 @interface SHReportViewController : UITableViewController
+
+@property (strong, nonatomic) SHWebApiFetcher *fetcher;
 
 @end

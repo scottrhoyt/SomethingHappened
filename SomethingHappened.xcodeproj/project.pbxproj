@@ -25,7 +25,7 @@
 		3BEBA07A18C6796600E1ABC8 /* SHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBA07918C6796600E1ABC8 /* SHAppDelegate.m */; };
 		3BEBA07D18C6796600E1ABC8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEBA07B18C6796600E1ABC8 /* Main_iPhone.storyboard */; };
 		3BEBA08018C6796600E1ABC8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEBA07E18C6796600E1ABC8 /* Main_iPad.storyboard */; };
-		3BEBA08318C6796600E1ABC8 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBA08218C6796600E1ABC8 /* SHViewController.m */; };
+		3BEBA08318C6796600E1ABC8 /* SHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBA08218C6796600E1ABC8 /* SHMainViewController.m */; };
 		3BEBA08518C6796600E1ABC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BEBA08418C6796600E1ABC8 /* Images.xcassets */; };
 		3BEBA08C18C6796600E1ABC8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA08B18C6796600E1ABC8 /* XCTest.framework */; };
 		3BEBA08D18C6796600E1ABC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEBA06918C6796600E1ABC8 /* Foundation.framework */; };
@@ -75,8 +75,8 @@
 		3BEBA07918C6796600E1ABC8 /* SHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAppDelegate.m; sourceTree = "<group>"; };
 		3BEBA07C18C6796600E1ABC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		3BEBA07F18C6796600E1ABC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		3BEBA08118C6796600E1ABC8 /* SHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
-		3BEBA08218C6796600E1ABC8 /* SHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
+		3BEBA08118C6796600E1ABC8 /* SHMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMainViewController.h; sourceTree = "<group>"; };
+		3BEBA08218C6796600E1ABC8 /* SHMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHMainViewController.m; sourceTree = "<group>"; };
 		3BEBA08418C6796600E1ABC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BEBA08A18C6796600E1ABC8 /* SomethingHappenedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SomethingHappenedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEBA08B18C6796600E1ABC8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -155,8 +155,8 @@
 				3BEBA07918C6796600E1ABC8 /* SHAppDelegate.m */,
 				3BEBA07B18C6796600E1ABC8 /* Main_iPhone.storyboard */,
 				3BEBA07E18C6796600E1ABC8 /* Main_iPad.storyboard */,
-				3BEBA08118C6796600E1ABC8 /* SHViewController.h */,
-				3BEBA08218C6796600E1ABC8 /* SHViewController.m */,
+				3BEBA08118C6796600E1ABC8 /* SHMainViewController.h */,
+				3BEBA08218C6796600E1ABC8 /* SHMainViewController.m */,
 				3BEBA08418C6796600E1ABC8 /* Images.xcassets */,
 				3BEBA07018C6796600E1ABC8 /* Supporting Files */,
 				3B1B66D918C7C9670062134D /* SHReportViewController.h */,
@@ -351,7 +351,7 @@
 				3BEBA07618C6796600E1ABC8 /* main.m in Sources */,
 				3B70196618C92DDB00E6DC81 /* SHWebApiFetcher.m in Sources */,
 				3B1B66DB18C7C9670062134D /* SHReportViewController.m in Sources */,
-				3BEBA08318C6796600E1ABC8 /* SHViewController.m in Sources */,
+				3BEBA08318C6796600E1ABC8 /* SHMainViewController.m in Sources */,
 				3BAB874618CBC0EE00CF29B4 /* CenterPinMapViewController.m in Sources */,
 				3BEBA07A18C6796600E1ABC8 /* SHAppDelegate.m in Sources */,
 				3B27CC2818CEDC8800EDF232 /* SHEventType.m in Sources */,

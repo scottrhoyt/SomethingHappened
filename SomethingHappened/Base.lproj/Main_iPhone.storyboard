@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Menu-->
+        <!--Main View Controller - Menu-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Menu" id="vXZ-lx-hvc" customClass="SHViewController" sceneMemberID="viewController">
+                <viewController title="Menu" id="vXZ-lx-hvc" customClass="SHMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zSf-w7-EME"/>
                         <viewControllerLayoutGuide type="bottom" id="8et-pO-LGD"/>
@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MBE-Pm-H2f" kind="push" id="p6H-4V-08D"/>
+                                    <segue destination="MBE-Pm-H2f" kind="push" identifier="Seque To Report" id="p6H-4V-08D"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNj-Uf-3Ax">

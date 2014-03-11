@@ -8,7 +8,6 @@
 
 #import "SHReportViewController.h"
 #import "SHArrayTableViewController.h"
-#import "SHWebApiFetcher.h"
 #import "CenterPinMapViewController.h"
 #import "SHEvent.h"
 
@@ -20,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (nonatomic, strong) NSArray *eventTypes; // of NSString *
 @property (weak, nonatomic) IBOutlet UILabel *eventTypeLabel;
-@property (strong, nonatomic) SHWebApiFetcher *fetcher;
 @property (weak, nonatomic) CenterPinMapViewController *cpmvc;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) SHEvent *event;
