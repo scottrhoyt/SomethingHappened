@@ -20,7 +20,7 @@
 
 @implementation SHEvent
 
-+ (RKObjectMapping *)getObjectMapping
++ (RKObjectMapping *)getResponseMapping
 {
     RKObjectMapping *objectMapping = [RKObjectMapping mappingForClass:[SHEvent class]];
     
@@ -53,7 +53,7 @@
 //                                                        @"eventTypeId",
 //                                                        @"comments"
 //                                                        ]];
-    return [[SHEvent getObjectMapping] inverseMapping];
+    return [[SHEvent getResponseMapping] inverseMapping];
     //return requestMapping;
 }
 

@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
-@interface SHJsonObj : NSObject
+@interface SHApiObject : NSObject
+
++ (RKObjectMapping *)getResponseMapping;
++ (RKObjectMapping *)getRequestMapping;
 
 @end

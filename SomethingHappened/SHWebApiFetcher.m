@@ -131,7 +131,7 @@
 //                                                                                           withMapping:userMapping];
 //    [statusMapping addPropertyMapping:relationShipMapping];
   
-    RKObjectMapping *mapping = [SHEvent getObjectMapping];
+    RKObjectMapping *mapping = [SHEvent getResponseMapping];
     
     
     // Update date format so that we can parse Twitter dates properly

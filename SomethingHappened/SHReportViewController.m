@@ -156,7 +156,7 @@
         self.editingDateTime = !self.editingDateTime;
         [UIView animateWithDuration:.4 animations:^{
             [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:DATE_CELL_ROW inSection:DATE_CELL_SECTION]] withRowAnimation:UITableViewRowAnimationFade];
-            //[self.tableView reloadData];
+            [self.tableView reloadData];
         }];
     }
 }
