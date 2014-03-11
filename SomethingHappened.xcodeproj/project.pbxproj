@@ -115,6 +115,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2FBFB318CF992E00D51FD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B70196418C92DDB00E6DC81 /* SHWebApiFetcher.h */,
+				3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */,
+				3B70196718C93FB900E6DC81 /* SHApiObject.h */,
+				3B70196818C93FB900E6DC81 /* SHApiObject.m */,
+				3B70196A18C93FD100E6DC81 /* SHEvent.h */,
+				3B70196B18C93FD100E6DC81 /* SHEvent.m */,
+				3B27CC2618CEDC8800EDF232 /* SHEventType.h */,
+				3B27CC2718CEDC8800EDF232 /* SHEventType.m */,
+				3B2FBFB018CF926A00D51FD1 /* SHReportingZone.h */,
+				3B2FBFB118CF926A00D51FD1 /* SHReportingZone.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3BEBA05D18C6796600E1ABC8 = {
 			isa = PBXGroup;
 			children = (
@@ -166,16 +183,7 @@
 				3B1B66DA18C7C9670062134D /* SHReportViewController.m */,
 				3B1B66DC18C7ED1F0062134D /* SHArrayTableViewController.h */,
 				3B1B66DD18C7ED1F0062134D /* SHArrayTableViewController.m */,
-				3B70196418C92DDB00E6DC81 /* SHWebApiFetcher.h */,
-				3B70196518C92DDB00E6DC81 /* SHWebApiFetcher.m */,
-				3B70196718C93FB900E6DC81 /* SHApiObject.h */,
-				3B70196818C93FB900E6DC81 /* SHApiObject.m */,
-				3B70196A18C93FD100E6DC81 /* SHEvent.h */,
-				3B70196B18C93FD100E6DC81 /* SHEvent.m */,
-				3B27CC2618CEDC8800EDF232 /* SHEventType.h */,
-				3B27CC2718CEDC8800EDF232 /* SHEventType.m */,
-				3B2FBFB018CF926A00D51FD1 /* SHReportingZone.h */,
-				3B2FBFB118CF926A00D51FD1 /* SHReportingZone.m */,
+				3B2FBFB318CF992E00D51FD1 /* Model */,
 			);
 			path = SomethingHappened;
 			sourceTree = "<group>";
