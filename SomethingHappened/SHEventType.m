@@ -8,6 +8,8 @@
 
 #import "SHEventType.h"
 
+#define EVENT_TYPES_SUB_URL @"/event_types"
+
 #define EVENT_TYPE_PKEY @"id"
 #define EVENT_TYPE_NAME_KEY @"name"
 #define EVENT_TYPE_DESCRIPTION_KEY @"description"
@@ -31,5 +33,10 @@
 //{
 //    return [[SHEventType getResponseMapping] inverseMapping];
 //}
+
++ (NSString *)getSubUrl
+{
+    return EVENT_TYPES_SUB_URL;
+}
 
 @end

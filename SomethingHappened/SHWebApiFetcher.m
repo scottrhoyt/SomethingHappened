@@ -7,13 +7,11 @@
 //
 
 #import "SHWebApiFetcher.h"
+#import "SHApiObject.h"
 #import <RestKit/RestKit.h>
 
 //#define BASE_API_URl @"http://wildonion-api.herokuapp.com"
 #define BASE_API_URl @"http://10.0.1.29:8080"
-#define EVENTS_SUB_URL @"/events"
-#define EVENT_TYPES_SUB_URL @"/event_types"
-#define REPORT_ZONES_SUB_URL @"/report_zones"
 //#define JSON_EXTENSION @"json"
 
 @implementation SHWebApiFetcher
@@ -26,131 +24,62 @@
     return self;
 }
 
-//-(NSArray *)executeQuery:(NSString *)query
-//{
-//    NSURL *queryUrl = [NSURL URLWithString:BASE_API_URl];
-//    queryUrl = [queryUrl URLByAppendingPathComponent:query];
-//    queryUrl = [queryUrl URLByAppendingPathExtension:JSON_EXTENSION];
-//    NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
-//    NSData *queryData = [NSData dataWithContentsOfURL:queryUrl];
-//    NSLog(@"%@", queryData);
-//    NSError *error;
-//    NSArray *results = queryData ? [NSJSONSerialization JSONObjectWithData:queryData options:0 error:&error] : nil;
-//    if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
-//    
-//    NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
-//    
-//    return results;
-//    
-//}
-
 -(NSArray *)getEventTypes
 {
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager getObjectsAtPath:EVENT_TYPES_SUB_URL
-                         parameters:nil
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSArray* statuses = [mappingResult array];
-                                NSLog(@"Loaded statuses: %@", statuses);
-                                //_statuses = statuses;
-                                //if(self.isViewLoaded)
-                                //    [_tableView reloadData];
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                message:[error localizedDescription]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                                [alert show];
-                                NSLog(@"Hit error: %@", error);
-                            }];
+    [self getObjectsForClass:[SHEventType class] usingParameters:nil withCompletion:nil];
     
     return nil;
-    //return [self executeQuery:EVENT_TYPES_SUB_URL];
 }
 
 -(NSArray *)getEvents
 {
-    //return [self executeQuery:EVENTS_SUB_URL];
-    // Load the object model via RestKit
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager getObjectsAtPath:EVENTS_SUB_URL
-                         parameters:nil
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSArray* statuses = [mappingResult array];
-                                NSLog(@"Loaded statuses: %@", statuses);
-                                //_statuses = statuses;
-                                //if(self.isViewLoaded)
-                                //    [_tableView reloadData];
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                message:[error localizedDescription]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                                [alert show];
-                                NSLog(@"Hit error: %@", error);
-                            }];
+    [self getObjectsForClass:[SHEvent class] usingParameters:nil withCompletion:nil];
     
     return nil;
 }
 
 - (void)getReportZonesWithHandler:(SHWeApiFetcherCompleteionHandler)handler
 {
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager getObjectsAtPath:REPORT_ZONES_SUB_URL
-                         parameters:nil
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSArray* statuses = [mappingResult array];
-                                NSLog(@"Loaded statuses: %@", statuses);
-                                if (handler) {
-                                    handler(nil, nil);
-                                }
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                message:[error localizedDescription]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                                [alert show];
-                                NSLog(@"Hit error: %@", error);
-                                if (handler) {
-                                    handler(nil, nil);
-                                }
-                            }];
+    [self getObjectsForClass:[SHReportZone class] usingParameters:nil withCompletion:handler];
 }
 
 - (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompleteionHandler)handler
 {
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
     NSDictionary *parameters = @{
                                  REPORTING_ZONE_LOCATION_LATITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.latitude],
                                  REPORTING_ZONE_LOCATION_LONGITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.longitude]
                                  };
-    [objectManager getObjectsAtPath:REPORT_ZONES_SUB_URL
-                         parameters:parameters
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                NSArray* statuses = [mappingResult array];
-                                NSLog(@"Loaded statuses: %@", statuses);
-                                if (handler) {
-                                    handler(nil, nil);
+    [self getObjectsForClass:[SHReportZone class] usingParameters:parameters withCompletion:handler];
+}
+
+- (void)getObjectsForClass:(Class)class usingParameters:(NSDictionary *)parameters withCompletion:(SHWeApiFetcherCompleteionHandler)completion
+{
+    if ([class isSubclassOfClass:[SHApiObject class]]) {
+        NSString *subUrl = [class performSelector:@selector(getSubUrl)];
+        
+        RKObjectManager *objectManager = [RKObjectManager sharedManager];
+        [objectManager getObjectsAtPath:subUrl
+                             parameters:parameters
+                                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                    NSArray* statuses = [mappingResult array];
+                                    NSLog(@"Loaded statuses: %@", statuses);
+                                    if (completion) {
+                                        completion(nil, nil);
+                                    }
                                 }
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                message:[error localizedDescription]
-                                                                               delegate:nil
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                                [alert show];
-                                NSLog(@"Hit error: %@", error);
-                                if (handler) {
-                                    handler(nil, nil);
-                                }
-                            }];
+                                failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                    message:[error localizedDescription]
+                                                                                   delegate:nil
+                                                                          cancelButtonTitle:@"OK"
+                                                                          otherButtonTitles:nil];
+                                    [alert show];
+                                    NSLog(@"Hit error: %@", error);
+                                    if (completion) {
+                                        completion(nil, nil);
+                                    }
+                                }];
+    }
 }
 
 -(void)createNewEvent:(SHEvent *)event
@@ -192,7 +121,7 @@
     // Register our mappings with the provider using a response descriptor
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHEvent getResponseMapping]
                                                                                             method:RKRequestMethodGET
-                                                                                       pathPattern:EVENTS_SUB_URL
+                                                                                       pathPattern:[SHEvent getSubUrl]
                                                                                            keyPath:nil
                                                                                        statusCodes:[NSIndexSet indexSetWithIndex:200]];
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHEvent getRequestMapping]
@@ -205,7 +134,7 @@
     
     responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHEventType getResponseMapping]
                                                                       method:RKRequestMethodGET
-                                                                 pathPattern:EVENT_TYPES_SUB_URL
+                                                                 pathPattern:[SHEventType getSubUrl]
                                                                      keyPath:nil
                                                                  statusCodes:[NSIndexSet indexSetWithIndex:200]];
     requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHEventType getRequestMapping]
@@ -218,7 +147,7 @@
     
     responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHReportZone getResponseMapping]
                                                                       method:RKRequestMethodGET
-                                                                 pathPattern:REPORT_ZONES_SUB_URL
+                                                                 pathPattern:[SHReportZone getSubUrl]
                                                                      keyPath:nil
                                                                  statusCodes:[NSIndexSet indexSetWithIndex:200]];
     requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHReportZone getRequestMapping]

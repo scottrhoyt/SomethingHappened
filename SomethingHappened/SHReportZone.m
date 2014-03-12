@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Wild Onion Labs. All rights reserved.
 //
 
+#define REPORT_ZONES_SUB_URL @"/report_zones"
+
 #import "SHReportZone.h"
 
 @implementation SHReportZone
@@ -47,5 +49,10 @@
 //{
 //    return [[SHReportingZone getResponseMapping] inverseMapping];
 //}
+
++ (NSString *)getSubUrl
+{
+    return REPORT_ZONES_SUB_URL;
+}
 
 @end

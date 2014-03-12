@@ -19,5 +19,6 @@
 // Must implement the following
 
 + (RKObjectMapping *)getResponseMapping;
++ (NSString *)getSubUrl;
 
 @end

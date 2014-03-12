@@ -14,14 +14,21 @@
 
 @implementation SHApiObject
 
++ (RKObjectMapping *)getRequestMapping
+{
+    return [[self getResponseMapping] inverseMapping];
+}
+
+#pragma mark - Must Override in subclass
+
 + (RKObjectMapping *)getResponseMapping
 {
     return nil;
 }
 
-+ (RKObjectMapping *)getRequestMapping
++ (NSString *)getSubUrl
 {
-    return [[self getResponseMapping] inverseMapping];
+    return nil;
 }
 
 @end
