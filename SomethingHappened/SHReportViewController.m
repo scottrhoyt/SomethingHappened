@@ -70,6 +70,9 @@
     [super viewDidLoad];
     
     self.eventTypes = [self.fetcher getEventTypes];
+    [self.fetcher getEvents];
+    [self.fetcher getReportZonesWithHandler:nil];
+    [self.fetcher getReportZonesWithCoordinate:CLLocationCoordinate2DMake(40.6, -89.6) andHandler:nil];
     self.cpmvc = self.childViewControllers[0];
     self.cpmvc.zoomToUser = YES;
     self.cpmvc.doesDisplayPointAccuracyIndicators = YES;
@@ -192,13 +195,27 @@
     self.addressLabel.text = placemark.name;
 }
 
+- (void)centerPinMapViewController:(CenterPinMapViewController *)sender didChangeSelectedCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    self.event.eventLocationLatitude = coordinate.latitude;
+    self.event.eventLocationLongitude = coordinate.longitude;
+    NSLog(@"Selected location update");
+}
+
+- (void)centerPinMapViewController:(CenterPinMapViewController *)sender didUpdateUserLocation:(CLLocation *)userLocation
+{
+    self.event.reportedLocationLatitude = userLocation.coordinate.latitude;
+    self.event.reportedLocationLongitude = userLocation.coordinate.longitude;
+    NSLog(@"User Location update");
+}
+
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
     self.event.userId = 1;
     self.event.eventTypeId = 0;
-    self.event.eventLocationLatitude = self.cpmvc.selectedCoordinate.latitude;
-    self.event.eventLocationLongitude = self.cpmvc.selectedCoordinate.longitude;
-    self.event.reportedLocationLatitude = self.cpmvc.selectedCoordinate.latitude; // need to change
-    self.event.reportedLocationLongitude = self.cpmvc.selectedCoordinate.longitude; // need to change
+    //self.event.eventLocationLatitude = self.cpmvc.selectedCoordinate.latitude;
+    //self.event.eventLocationLongitude = self.cpmvc.selectedCoordinate.longitude;
+    //self.event.reportedLocationLatitude = self.cpmvc.selectedCoordinate.latitude; // need to change
+    //self.event.reportedLocationLongitude = self.cpmvc.selectedCoordinate.longitude; // need to change
     self.event.comments = self.commentsTextView.text;
     [self.fetcher createNewEvent:self.event];
 }

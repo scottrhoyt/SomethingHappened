@@ -17,6 +17,7 @@
 #define EVENT_LONG_KEY @"event_location_longitude"
 #define EVENT_EVENT_TYPE_ID_KEY @"event_type_id"
 #define EVENT_COMMENTS_KEY @"comments"
+#define EVENT_REPORT_ZONE_ID @"report_zone_id"
 
 @implementation SHEvent
 
@@ -33,7 +34,8 @@
                                                         EVENT_LAT_KEY : @"eventLocationLatitude",
                                                         EVENT_LONG_KEY : @"eventLocationLongitude",
                                                         EVENT_EVENT_TYPE_ID_KEY : @"eventTypeId",
-                                                        EVENT_COMMENTS_KEY : @"comments"
+                                                        EVENT_COMMENTS_KEY : @"comments",
+                                                        EVENT_REPORT_ZONE_ID : @"reportZoneId"
                                                         }];
     
     return objectMapping;

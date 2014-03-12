@@ -21,5 +21,6 @@
 @property (nonatomic) CLLocationDegrees eventLocationLongitude;
 @property (nonatomic) NSUInteger eventTypeId;
 @property (nonatomic) NSString *comments;
+@property (nonatomic) NSUInteger reportZoneId;
 
 @end
