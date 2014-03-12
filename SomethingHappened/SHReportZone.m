@@ -8,6 +8,8 @@
 
 #define REPORT_ZONES_SUB_URL @"/report_zones"
 
+#define REPORT_ZONE_ROOT_KEY @"report_zone"
+
 #import "SHReportZone.h"
 
 @implementation SHReportZone
@@ -45,10 +47,10 @@
     return objectMapping;
 }
 
-//+ (RKObjectMapping *)getRequestMapping
-//{
-//    return [[SHReportingZone getResponseMapping] inverseMapping];
-//}
++ (NSString *)getRootKey
+{
+    return REPORT_ZONE_ROOT_KEY;
+}
 
 + (NSString *)getSubUrl
 {

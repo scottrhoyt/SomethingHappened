@@ -24,14 +24,14 @@
 //#define EVENT_EVENT_TYPE_ID_KEY @"event_type_id"
 //#define EVENT_COMMENTS_KEY @"comments"
 
-typedef void (^SHWeApiFetcherCompleteionHandler)(id result, NSError *error);
+typedef void (^SHWeApiFetcherCompletionHandler)(id result, NSError *error);
 
 @interface SHWebApiFetcher : NSObject
 
 - (NSArray *)getEventTypes;
 - (NSArray *)getEvents;
-- (void)getReportZonesWithHandler:(SHWeApiFetcherCompleteionHandler)handler;
-- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompleteionHandler)handler;
+- (void)getReportZonesWithHandler:(SHWeApiFetcherCompletionHandler)handler;
+- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompletionHandler)handler;
 - (void)createNewEvent:(SHEvent *)event;
 
 @end

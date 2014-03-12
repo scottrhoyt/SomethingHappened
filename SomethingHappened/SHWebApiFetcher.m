@@ -38,12 +38,12 @@
     return nil;
 }
 
-- (void)getReportZonesWithHandler:(SHWeApiFetcherCompleteionHandler)handler
+- (void)getReportZonesWithHandler:(SHWeApiFetcherCompletionHandler)handler
 {
     [self getObjectsForClass:[SHReportZone class] usingParameters:nil withCompletion:handler];
 }
 
-- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompleteionHandler)handler
+- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompletionHandler)handler
 {
     NSDictionary *parameters = @{
                                  REPORTING_ZONE_LOCATION_LATITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.latitude],
@@ -52,7 +52,7 @@
     [self getObjectsForClass:[SHReportZone class] usingParameters:parameters withCompletion:handler];
 }
 
-- (void)getObjectsForClass:(Class)class usingParameters:(NSDictionary *)parameters withCompletion:(SHWeApiFetcherCompleteionHandler)completion
+- (void)getObjectsForClass:(Class)class usingParameters:(NSDictionary *)parameters withCompletion:(SHWeApiFetcherCompletionHandler)completion
 {
     if ([class isSubclassOfClass:[SHApiObject class]]) {
         NSString *subUrl = [class performSelector:@selector(getSubUrl)];
@@ -114,49 +114,12 @@
     // Initialize RestKit
     RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
     
-    // Update date format so that we can parse Twitter dates properly
-    // Wed Sep 29 15:31:08 +0000 2010
-//    [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
-    
-    // Register our mappings with the provider using a response descriptor
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHEvent getResponseMapping]
-                                                                                            method:RKRequestMethodGET
-                                                                                       pathPattern:[SHEvent getSubUrl]
-                                                                                           keyPath:nil
-                                                                                       statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHEvent getRequestMapping]
-                                                                                   objectClass:[SHEvent class]
-                                                                                   rootKeyPath:@"event"
-                                                                                        method:RKRequestMethodPOST];
-
-    [objectManager addResponseDescriptor:responseDescriptor];
-    [objectManager addRequestDescriptor:requestDescriptor];
-    
-    responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHEventType getResponseMapping]
-                                                                      method:RKRequestMethodGET
-                                                                 pathPattern:[SHEventType getSubUrl]
-                                                                     keyPath:nil
-                                                                 statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHEventType getRequestMapping]
-                                                              objectClass:[SHEventType class]
-                                                              rootKeyPath:@"event_type"
-                                                                   method:RKRequestMethodPOST];
-    
-    [objectManager addResponseDescriptor:responseDescriptor];
-    [objectManager addRequestDescriptor:requestDescriptor];
-    
-    responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[SHReportZone getResponseMapping]
-                                                                      method:RKRequestMethodGET
-                                                                 pathPattern:[SHReportZone getSubUrl]
-                                                                     keyPath:nil
-                                                                 statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[SHReportZone getRequestMapping]
-                                                              objectClass:[SHReportZone class]
-                                                              rootKeyPath:@"report_zone"
-                                                                   method:RKRequestMethodPOST];
-    
-    [objectManager addResponseDescriptor:responseDescriptor];
-    [objectManager addRequestDescriptor:requestDescriptor];
+    [objectManager addRequestDescriptorsFromArray:[SHEvent getRequestDiscriptors]];
+    [objectManager addRequestDescriptorsFromArray:[SHEventType getRequestDiscriptors]];
+    [objectManager addRequestDescriptorsFromArray:[SHReportZone getRequestDiscriptors]];
+    [objectManager addResponseDescriptorsFromArray:[SHEvent getResponseDiscriptors]];
+    [objectManager addResponseDescriptorsFromArray:[SHEventType getResponseDiscriptors]];
+    [objectManager addResponseDescriptorsFromArray:[SHReportZone getResponseDiscriptors]];
     
     objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
 }

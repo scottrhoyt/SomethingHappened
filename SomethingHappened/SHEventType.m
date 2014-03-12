@@ -10,6 +10,8 @@
 
 #define EVENT_TYPES_SUB_URL @"/event_types"
 
+#define EVENT_TYPE_ROOT_KEY @"event_type"
+
 #define EVENT_TYPE_PKEY @"id"
 #define EVENT_TYPE_NAME_KEY @"name"
 #define EVENT_TYPE_DESCRIPTION_KEY @"description"
@@ -29,14 +31,14 @@
     return objectMapping;
 }
 
-//+ (RKObjectMapping *)getRequestMapping
-//{
-//    return [[SHEventType getResponseMapping] inverseMapping];
-//}
-
 + (NSString *)getSubUrl
 {
     return EVENT_TYPES_SUB_URL;
+}
+
++ (NSString *)getRootKey
+{
+    return EVENT_TYPE_ROOT_KEY;
 }
 
 @end

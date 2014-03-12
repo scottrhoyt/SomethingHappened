@@ -10,6 +10,8 @@
 
 #define EVENTS_SUB_URL @"/events"
 
+#define EVENT_ROOT_KEY @"event"
+
 #define EVENT_PKEY @"id"
 #define EVENT_USER_ID_KEY @"user_id"
 #define EVENT_REPORTED_DATE_KEY @"reported_at"
@@ -43,16 +45,14 @@
     return objectMapping;
 }
 
-//+ (RKObjectMapping *)getRequestMapping
-//{
-//    RKObjectMapping *requestMapping = [RKObjectMapping requestMapping];
-//
-//    return [[SHEvent getResponseMapping] inverseMapping];
-//}
-
 + (NSString *)getSubUrl
 {
     return EVENTS_SUB_URL;
+}
+
++ (NSString *)getRootKey
+{
+    return EVENT_ROOT_KEY;
 }
 
 @end

@@ -15,10 +15,13 @@
 @interface SHApiObject : NSObject
 
 + (RKObjectMapping *)getRequestMapping;
++ (NSArray *)getResponseDiscriptors;
++ (NSArray *)getRequestDiscriptors;
 
 // Must implement the following
 
 + (RKObjectMapping *)getResponseMapping;
 + (NSString *)getSubUrl;
++ (NSString *)getRootKey;
 
 @end
