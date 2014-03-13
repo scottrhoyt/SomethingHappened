@@ -12,7 +12,6 @@
 
 //#define BASE_API_URl @"http://wildonion-api.herokuapp.com"
 #define BASE_API_URl @"http://10.0.1.29:8080"
-//#define JSON_EXTENSION @"json"
 
 @implementation SHWebApiFetcher
 
@@ -22,34 +21,6 @@
     [self initRestKit];
     
     return self;
-}
-
--(NSArray *)getEventTypes
-{
-    [self getObjectsForClass:[SHEventType class] usingParameters:nil withCompletion:nil];
-    
-    return nil;
-}
-
--(NSArray *)getEvents
-{
-    [self getObjectsForClass:[SHEvent class] usingParameters:nil withCompletion:nil];
-    
-    return nil;
-}
-
-- (void)getReportZonesWithHandler:(SHWeApiFetcherCompletionHandler)handler
-{
-    [self getObjectsForClass:[SHReportZone class] usingParameters:nil withCompletion:handler];
-}
-
-- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompletionHandler)handler
-{
-    NSDictionary *parameters = @{
-                                 REPORTING_ZONE_LOCATION_LATITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.latitude],
-                                 REPORTING_ZONE_LOCATION_LONGITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.longitude]
-                                 };
-    [self getObjectsForClass:[SHReportZone class] usingParameters:parameters withCompletion:handler];
 }
 
 - (void)getObjectsForClass:(Class)class usingParameters:(NSDictionary *)parameters withCompletion:(SHWeApiFetcherCompletionHandler)completion
@@ -82,16 +53,20 @@
     }
 }
 
--(void)createNewEvent:(SHEvent *)event
+- (void)createNewObject:(SHApiObject *)object withCompletion:(SHWeApiFetcherCompletionHandler)completion
 {
-    [[RKObjectManager sharedManager] postObject:event
-                                           path:@"/events"
+    [[RKObjectManager sharedManager] postObject:object
+                                           path:[[object class] getSubUrl]
                                      parameters:nil
                                         success: ^(RKObjectRequestOperation *sender, RKMappingResult *result){
-                                            int i = 0;
+                                            if (completion) {
+                                                completion(nil, nil);
+                                            }
                                         }
                                         failure:^(RKObjectRequestOperation *sender, NSError *error){
-                                            int i = 0;
+                                            if (completion) {
+                                                completion(nil, nil);
+                                            }
                                         }
      ];
 }

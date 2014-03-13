@@ -10,6 +10,13 @@
 
 #define REPORT_ZONE_ROOT_KEY @"report_zone"
 
+#define REPORTING_ZONE_PKEY @"id"
+#define REPORTING_ZONE_NAME_KEY @"name"
+#define REPORTING_ZONE_DESCRIPTION_KEY @"description"
+#define REPORTING_ZONE_LOCATION_LATITUDE_KEY @"location_latitude"
+#define REPORTING_ZONE_LOCATION_LONGITUDE_KEY @"location_longitude"
+#define REPORTING_ZONE_RADIUS_KEY @"radius"
+
 #import "SHReportZone.h"
 
 @implementation SHReportZone
@@ -27,6 +34,15 @@
 {
     self.locationLongitude = coordinate.longitude;
     self.locationLatitude = coordinate.latitude;
+}
+
++ (NSDictionary *)getParamsForCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    NSDictionary *parameters = @{
+                                 REPORTING_ZONE_LOCATION_LATITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.latitude],
+                                 REPORTING_ZONE_LOCATION_LONGITUDE_KEY : [NSString stringWithFormat:@"%f", coordinate.longitude]
+                                 };
+    return parameters;
 }
 
 #pragma mark - SHApiObject method overrides

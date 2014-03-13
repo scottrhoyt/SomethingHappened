@@ -69,10 +69,10 @@
 {
     [super viewDidLoad];
     
-    self.eventTypes = [self.fetcher getEventTypes];
-    [self.fetcher getEvents];
-    [self.fetcher getReportZonesWithHandler:nil];
-    [self.fetcher getReportZonesWithCoordinate:CLLocationCoordinate2DMake(40.6, -89.6) andHandler:nil];
+    [self.fetcher getObjectsForClass:[SHEventType class] usingParameters:nil withCompletion:nil];
+    [self.fetcher getObjectsForClass:[SHEvent class] usingParameters:nil withCompletion:nil];
+    [self.fetcher getObjectsForClass:[SHReportZone class] usingParameters:nil withCompletion:nil];
+    [self.fetcher getObjectsForClass:[SHReportZone class] usingParameters:[SHReportZone getParamsForCoordinate:CLLocationCoordinate2DMake(40.6, -89.6)] withCompletion:nil];
     self.cpmvc = self.childViewControllers[0];
     self.cpmvc.zoomToUser = YES;
     self.cpmvc.doesDisplayPointAccuracyIndicators = YES;
@@ -217,7 +217,7 @@
     //self.event.reportedLocationLatitude = self.cpmvc.selectedCoordinate.latitude; // need to change
     //self.event.reportedLocationLongitude = self.cpmvc.selectedCoordinate.longitude; // need to change
     self.event.comments = self.commentsTextView.text;
-    [self.fetcher createNewEvent:self.event];
+    [self.fetcher createNewObject:self.event withCompletion:nil];
 }
 
 @end

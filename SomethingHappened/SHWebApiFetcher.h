@@ -11,27 +11,11 @@
 #import "SHEventType.h"
 #import "SHReportZone.h"
 
-//#define EVENT_TYPE_NAME_KEY @"name"
-//#define EVENT_TYPE_DESCRIPTION_KEY @"description"
-//
-//#define EVENT_PKEY @"event"
-//#define EVENT_USER_ID_KEY @"user_id"
-//#define EVENT_REPORTED_DATE_KEY @"reported_at"
-//#define EVENT_REPORTED_LAT_KEY @"reported_location_latitude"
-//#define EVENT_REPORTED_LONG_KEY @"reported_location_longitude"
-//#define EVENT_LAT_KEY @"event_location_latitude"
-//#define EVENT_LONG_KEY @"event_location_longitude"
-//#define EVENT_EVENT_TYPE_ID_KEY @"event_type_id"
-//#define EVENT_COMMENTS_KEY @"comments"
-
 typedef void (^SHWeApiFetcherCompletionHandler)(id result, NSError *error);
 
 @interface SHWebApiFetcher : NSObject
 
-- (NSArray *)getEventTypes;
-- (NSArray *)getEvents;
-- (void)getReportZonesWithHandler:(SHWeApiFetcherCompletionHandler)handler;
-- (void)getReportZonesWithCoordinate:(CLLocationCoordinate2D)coordinate andHandler:(SHWeApiFetcherCompletionHandler)handler;
-- (void)createNewEvent:(SHEvent *)event;
+- (void)getObjectsForClass:(Class)class usingParameters:(NSDictionary *)parameters withCompletion:(SHWeApiFetcherCompletionHandler)completion;
+- (void)createNewObject:(SHApiObject *)object withCompletion:(SHWeApiFetcherCompletionHandler)completion;
 
 @end
